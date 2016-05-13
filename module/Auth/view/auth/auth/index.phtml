@@ -1,0 +1,21 @@
+
+<div class="row">
+    <div class="col-xs-6 ">
+
+        <?php echo $this->partial(
+            'register_form', array(
+                'form' => $this->register_form,
+                'response' => $this->register_response,
+            )); ?>
+
+    </div>
+    <div class="col-xs-6">
+
+        <?php echo $this->partial(
+            'login_form', array(
+                'form' => $this->login_form,
+                'response' => $this->login_response,
+        )); ?>
+
+    </div>
+</div><br>

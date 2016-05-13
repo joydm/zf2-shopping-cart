@@ -1,0 +1,76 @@
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-4">
+                <img class="" src="<?php echo $this->basePath('img/app/product/'.$productItem->product_image) ?>" alt="UPrinting" width="auto"/>
+        </div>
+
+        <div class="col-xs-8">
+
+            <?php
+                if(!empty($response)){ ?>
+
+                    <div class="alert alert-danger">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <?php echo $response; ?>
+                    </div>
+
+            <?php } ?>
+
+            <br>
+            <div class="row">
+                <div class="col-xs-8 col-sm-3">
+                    <span><strong>Product Name :</strong></span><br>
+                    <span><strong>Product Description  :</strong></span><br>
+                    <span><strong>Unit Price :</strong></span><br>
+                    <span><strong>Quantity :</strong></span><br>
+                    <span><strong>Price :</strong></span><br>
+
+                </div>
+                <div class="col-xs-4 col-sm-9">
+                    <?php
+
+                        $form->prepare();
+                        echo $this->form()->openTag($form);
+                        echo $this->formHidden($form->get('hdPrice'));
+                    ?>
+                            <span><?php echo $this->escapeHtml($productItem->product_name);?></span><br>
+                            <span><?php echo $this->escapeHtml($productItem->product_desc);?></span><br>
+                            <strong>$<span  name="unit_price" id="unit_price"><?php echo $this->escapeHtml($productItem->price);?></span></strong><br>
+                    <?php   echo $this->formRow($form->get('quantity')) . "<br>"; ?>
+                            <strong><span id="total_price" name="total_price"></span></strong><br>
+                    <?php
+                            echo $this->formSubmit($form->get('submit'));
+                        echo $this->form()->closeTag();
+                    ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+
+    var quantity = $('#quantity').val();
+    var unit_price = $('#unit_price').text();
+    var total_price = quantity * unit_price;
+    $('#total_price').text('$' + total_price.toFixed(2));
+
+
+    $('#quantity').on('blur', function () {
+        var quantity = $(this).val();
+        var unit_price = $('#unit_price').text();
+        var total_price = quantity * unit_price;
+
+        if($.isNumeric(total_price)) {
+            $('#total_price').text('$' + total_price.toFixed(2));
+            $('#hdPrice').val(total_price);
+        }else {
+            alert("Please provide numeric quantity");
+        }
+    });
+</script>

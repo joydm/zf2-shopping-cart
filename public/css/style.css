@@ -1,0 +1,82 @@
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+/* Div locators */
+    .peach { background-color: #ce8483; }
+    .green { background-color: #2b542c; }
+    .gray  { background-color: #E8F3F8; }
+    .gray1  { background-color: #DBE6EC; }
+    .gray2  { background-color: #C2CBCE; }
+    .gray3 { background-color: #A4BCC2; }
+
+
+
+    .font-peach { color: #ce8483; }
+    .font-green { color: #2b542c; }
+    .font-blue{ color: #2aabd2; }
+
+
+/* Auth > Register Form */
+    .label-fixed {
+        width: 150px;
+    }
+
+/* Product > Cart Page*/
+    .pad5 {
+        padding: 5px;
+    }
+
+.radio-header {
+    font-size: 11px;
+}
+
+
+
+
+
+
+    .btn-register {
+        background-color: #57a900;
+        background-image: -moz-linear-gradient(top, #70d900, #57a900);
+        background-image: -ms-linear-gradient(top, #70d900, #57a900);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#70d900), to(#57a900));
+        background-image: -webkit-linear-gradient(top, #70d900, #57a900);
+        background-image: -o-linear-gradient(top, #70d900, #57a900);
+        background-image: linear-gradient(top, #70d900, #57a900);
+    }
+
+
+.zf-green {
+    color: #68b604;
+}
+
+.btn-success {
+  background-color: #57a900;
+  background-image: -moz-linear-gradient(top, #70d900, #57a900);
+  background-image: -ms-linear-gradient(top, #70d900, #57a900);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#70d900), to(#57a900));
+  background-image: -webkit-linear-gradient(top, #70d900, #57a900);
+  background-image: -o-linear-gradient(top, #70d900, #57a900);
+  background-image: linear-gradient(top, #70d900, #57a900);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#70d900', endColorstr='#57a900', GradientType=0);
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success.active,
+.btn-success.disabled,
+.btn-success[disabled] {
+  background-color: #57a900;
+}
+
+.btn-success:active, .btn-success.active {
+  background-color: #57a900;
+}
+
+div.container a.brand {
+    background: url("../img/zf2-logo.png") no-repeat scroll 0 10px transparent;
+    margin-left: 0;
+    padding: 8px 20px 12px 40px;
+}

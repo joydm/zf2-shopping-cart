@@ -1,0 +1,41 @@
+<?php
+
+    $title = 'Products';
+    $this->headTitle($title);
+?>
+
+    <div class="container">
+
+        <?php
+            foreach ($products as $product)
+            {
+        ?>
+            <div class="row">
+                <div class="col-xs-2">
+                    <a href="<?php echo $this->url('product', array('action'=>'view', 'id' => $product->product_id));?>">
+                        <img class="" src="<?php echo $this->basePath('img/app/product/thumb/'.$product->product_thumbnail) ?>" alt="UPrinting" width="80%"/>
+                    </a>
+                </div>
+                <div class="col-xs-10">
+                    <div class="row">
+                        <div class="col-xs-8 col-sm-3">
+                            <span><strong>Product Name :</strong></span><br>
+                            <span><strong>Product Description  :</strong></span><br>
+                            <span><strong>Price :</strong></span><br>
+
+                        </div>
+                        <div class="col-xs-4 col-sm-9">
+                            <span><?php echo $this->escapeHtml($product->product_name);?></span><br>
+                            <span><?php echo $this->escapeHtml($product->product_desc);?></span><br>
+                           <strong><span><?php echo "$" . $this->escapeHtml($product->price);?></span></strong><br>
+
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+        <?php
+
+            }
+        ?>
+
+    </div>

@@ -1,0 +1,16 @@
+
+    <h3>We like to ship it</h3><br>
+
+    <?php
+
+        $form->prepare();
+        echo $this->form()->openTag($form);
+
+        foreach ($form as $element){
+            echo $this->formrow($element) . "<br/>";
+        }
+
+        echo $this->form()->closeTag();
+
+
+    

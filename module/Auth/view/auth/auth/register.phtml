@@ -1,0 +1,24 @@
+
+    <h3>Join us!</h3>
+
+    <?php
+
+    if(!empty($response)){ ?>
+
+        <div class="alert alert-danger">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <?php echo $response; ?>
+        </div>
+
+    <?php }
+
+        // Registration Form
+        $form->prepare();
+        echo $this->form()->openTag($form);
+
+            foreach ($form as $element){
+                echo $this->formrow($element) . "<br/>";
+            }
+        echo $this->form()->closeTag();
+
+    ?>

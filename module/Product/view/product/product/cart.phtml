@@ -1,0 +1,83 @@
+
+<?php if($cartItems != null) { ?>
+    <div class="container">
+
+        <div class="row gray">
+            <div class="col-xs-6"><h4>Product</h4></div>
+            <div class="col-xs-3"><h4>Quantity</h4></div>
+            <div class="col-xs-3"><h4>Price</h4></div>
+        </div><br>
+
+            <?php
+
+                $subtotal = 0;
+                $shipping = 0;
+                $grand_total = 0;
+                foreach ($cartItems as $item)
+                {
+
+            ?>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <img class="" src="<?php echo $this->basePath('img/app/product/thumb/'.$item->product_thumbnail) ?>" alt="UPrinting" width="50%"/>
+                                </div>
+                                <div class="col-xs-8 pull-left">
+                                    <span><strong><?php echo $item->product_name; ?></strong></span><br>
+                                    <span><?php echo $item->product_desc; ?></span><br>
+                                    <span><?php echo "$". $item->price . " each"; ?></span><br>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-3">
+                            <span><?php echo $item->sum_quantity; ?></span><br>
+
+                        </div>
+
+                        <div class="col-xs-3">
+                            <span><?php echo "$ ". $item->sum_price ; ?></span><br>
+                        </div>
+                    </div><br>
+
+             <?php
+                    $subtotal += $item->sum_price;
+                }
+            ?>
+
+            <div class="row">
+                <div class="col-xs-6"></div>
+                <div class="col-xs-6">
+                    <div class="row">
+                        <div class="col-xs-6 gray1"><p class="pad5"><strong>Subtotal</strong></p></div>
+                        <div class="col-xs-6 gray1"><p class="pad5"><?php echo "$ ". $subtotal; ?></p></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 gray2"><p class="pad5"><strong>Shipping</strong></p></div>
+                        <div class="col-xs-6 gray2"><p class="pad5"><?php echo $shipping; ?></p></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 gray3"><p class="gray3 pad5"><strong>Grand Total</strong></p></div>
+                        <div class="col-xs-6 gray3"><p class="pad5"><?php echo "$ ". $grand_total = $subtotal + $shipping; ?></p></div>
+                    </div>
+                </div>
+            </div><br>
+
+            <form action="/product/cart" method="post" name="cart" class="pull-right">
+                <input type="submit" name="cartSubmit" id="cartSubmit" value="Checkout">
+            </form>
+
+    </div>
+
+<?php }else { ?>
+
+    <div class="jumbotron">
+        <h2 class="display-3">Your shopping cart is empty!</h2>
+        <p class="lead">Try our latest products from Far Far Away.</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="<?php echo $this->url('product', array('action'=>'index'));?>" role="button">See products</a>
+        </p>
+    </div>
+
+<?php } ?>

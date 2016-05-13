@@ -1,0 +1,31 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="<?php echo $this->url('product') ?>"><img src="<?php echo $this->basePath('img/uprinting-logo.png') ?>" alt="UPrinting" width="50%"/></a>
+        </div>
+        <div class="collapse navbar-collapse pull-right">
+            <ul class="nav navbar-nav">
+                <?php
+
+                if($userLoggedIn){ ?>
+                    <li class="active" name="customer"><a href="#"><strong  class="font-peach"><?php echo "Howdy ". $customerFirstName ."!"; ?></strong></a></li>
+                    <li class="active" name="cart"><a href="<?php echo $this->url('product', array('action' => 'cart')) ?>">Cart</a></li>
+                    <li class="active" name="login"><a href="<?php echo $this->url('auth', array('action' => 'logout')) ?>">Logout</a></li>
+
+                <?php }else { ?>
+
+                    <li class="active" name="login"><a href="<?php echo $this->url('auth', array('action' => 'index')) ?>">Login</a></li>
+                    <li class="active" name="cart"><a href="<?php echo $this->url('product', array('action' => 'cart')) ?>">Cart</a></li>
+
+                <?php } ?>
+
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
